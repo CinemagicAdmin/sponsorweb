@@ -6,7 +6,7 @@ import { useAuthContext } from '@/contexts/AuthContext';
 import { LoadingScreen } from '@/components/ui/LoadingScreen';
 import { ErrorScreen } from '@/components/ui/ErrorScreen';
 
-function HomeContent() {
+function MachineDetailContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { isAuthenticated, isLoading } = useAuthContext();
@@ -29,8 +29,8 @@ function HomeContent() {
   if (!machineId) {
     return (
       <ErrorScreen
-        title="No Machine Found"
-        message="Please scan a valid Vend IT QR code on the vending machine to get started."
+        title="Invalid QR Code"
+        message="The QR code does not contain valid machine information. Please scan again."
       />
     );
   }
@@ -38,10 +38,10 @@ function HomeContent() {
   return <LoadingScreen message="Redirecting..." />;
 }
 
-export default function HomePage() {
+export default function MachineDetailRedirect() {
   return (
     <Suspense fallback={<LoadingScreen />}>
-      <HomeContent />
+      <MachineDetailContent />
     </Suspense>
   );
 }

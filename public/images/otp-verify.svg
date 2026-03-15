@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <rect x="60" y="30" width="80" height="140" rx="12" fill="#f0f0f0" stroke="#ccc" stroke-width="2"/>
+  <rect x="70" y="50" width="60" height="90" rx="4" fill="#fff"/>
+  <circle cx="100" cy="155" r="8" fill="#ddd"/>
+  <!-- Lock icon -->
+  <rect x="88" y="68" width="24" height="18" rx="4" fill="#FFB347"/>
+  <path d="M93 68V62a7 7 0 0 1 14 0v6" stroke="#FFB347" stroke-width="3" fill="none"/>
+  <!-- OTP dots -->
+  <circle cx="78" cy="100" r="5" fill="#ddd"/>
+  <circle cx="93" cy="100" r="5" fill="#ddd"/>
+  <circle cx="108" cy="100" r="5" fill="#ddd"/>
+  <circle cx="123" cy="100" r="5" fill="#ddd"/>
+  <rect x="80" y="115" width="40" height="10" rx="5" fill="#FF6B6B"/>
+  <!-- Hand -->
+  <ellipse cx="130" cy="145" rx="30" ry="20" fill="#FFD6B3" transform="rotate(-20 130 145)"/>
+  <rect x="110" y="140" width="15" height="40" rx="7" fill="#FFD6B3" transform="rotate(-10 110 140)"/>
+  <rect x="95" y="150" width="12" height="15" rx="6" fill="#4ECDC4"/>
+</svg>
