@@ -67,7 +67,7 @@ export function SponsoredProductCard({
 
         {/* Info */}
         <div className="px-3 pb-3 pt-2">
-          <div className="flex items-start justify-between gap-1">
+          <div className="flex items-start justify-between gap-1 min-h-[2.5rem]">
             <h3 className="text-sm font-bold text-gray-900 line-clamp-2 flex-1">
               {product?.brand_name ?? 'Sponsored Product'}
             </h3>
