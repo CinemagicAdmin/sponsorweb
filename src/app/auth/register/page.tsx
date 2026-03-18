@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { PhoneInput } from '@/components/ui/PhoneInput';
 import { Button } from '@/components/ui/Button';
 import { LoadingScreen } from '@/components/ui/LoadingScreen';
-import { defaultCountry, type Country } from '@/utils/countries';
+import { countries, defaultCountry, type Country } from '@/utils/countries';
 import { authService } from '@/services/auth.service';
 import { useAuthContext } from '@/contexts/AuthContext';
 import { storage } from '@/utils/storage';
@@ -16,10 +16,14 @@ function RegisterContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const machineId = searchParams.get('m');
+  const prefillPhone = searchParams.get('phone') ?? '';
+  const prefillCc = searchParams.get('cc') ?? '';
   const { setAuth } = useAuthContext();
 
-  const [country, setCountry] = useState<Country>(defaultCountry);
-  const [phone, setPhone] = useState('');
+  const [country, setCountry] = useState<Country>(
+    () => countries.find((c) => c.dialCode === prefillCc) ?? defaultCountry,
+  );
+  const [phone, setPhone] = useState(prefillPhone);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 

@@ -51,6 +51,17 @@ function LoginContent() {
       const msg =
         (err as { response?: { data?: { message?: string } } })?.response?.data
           ?.message ?? 'Login failed. Please try again.';
+      const status =
+        (err as { response?: { status?: number } })?.response?.status;
+
+      // User not found → redirect to signup with phone pre-filled
+      if (status === 404 || msg.toLowerCase().includes('not found') || msg.toLowerCase().includes('register')) {
+        router.push(
+          `/auth/register?m=${machineId ?? ''}&phone=${phone}&cc=${encodeURIComponent(country.dialCode)}`,
+        );
+        return;
+      }
+
       setError(msg);
     } finally {
       setLoading(false);
