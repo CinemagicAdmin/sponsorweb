@@ -75,6 +75,14 @@ api.interceptors.response.use(
       }
     }
 
+    // Handle 429 – auto-retry once after delay
+    if (error.response?.status === 429 && !original._rateLimitRetry) {
+      original._rateLimitRetry = true;
+      const retryAfter = Number(error.response.headers['retry-after']) || 5;
+      await new Promise((r) => setTimeout(r, retryAfter * 1000));
+      return api(original);
+    }
+
     return Promise.reject(error);
   },
 );
