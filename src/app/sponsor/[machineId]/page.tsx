@@ -250,7 +250,7 @@ export default function SponsorPage() {
   if (step === 'dispensing') {
     return (
       <DispenseStatus
-        machineId={machineId}
+        machineId={machine?.machine_tag ?? machineId}
         paymentId={paymentId}
         slotNumber={selectedSlot!}
         onSuccess={handleDispenseComplete}
